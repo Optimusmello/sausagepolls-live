@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+
+{%block title%}Sign Up{%endblock%}
+
+{%block body%}
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form method="POST" novalidate>
+            {%csrf_token%}
+            {{form.as_p}}
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+        <div class="card-footer text-muted text-center">
+            Already Have An Account? <a href="{%url 'login'%}">Log in</a>
+        </div>
+    </div>
+{%endblock%}

@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+
+{%block title%}{%endblock%}
+
+{%block content%}
+
+{%for result in polls.polloptions.all%}
+    <div class="container">
+        {{result.option1}} => {{result.option1count}}<br>
+        {{result.option2}} => {{result.option2count}}<br>
+        {{result.option3}} => {{result.option3count}}<br>
+    </div>
+{%endfor%}
+
+{%endblock%}

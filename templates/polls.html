@@ -1,0 +1,101 @@
+{%extends 'base.html'%}
+
+{%block title%}{{poll.Question}}{%endblock%}
+
+{%block content%}
+{%if messages%}
+    {%for message in messages%}
+        {%if message.level == DEFAULT_MESSAGE_LEVELS.INFO%}
+            <div class="message">
+                <div class="d-flex justify-content-start">
+                    <div class="alert alert-info" role="alert">{{message}}</div>
+                </div>
+            </div>
+        {%elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR%}
+            <div class="message">
+                <div class="d-flex justify-content-start">
+                    <div class="alert alert-danger" role="alert">{{message}}</div>
+                </div>
+            </div>
+        {%endif%}
+    {%endfor%}
+{%endif%}
+<div class="container">
+    <div class="d-flex justify-content-center">    
+        <div class="col-md-4">
+            <form method="POST">
+                {%csrf_token%}
+                <div class="panel panel-primary">
+                    <div class="d-flex justify-content-center">
+                        <h3 class="question-font">{{polls.Question}}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            {%for polloptions in polls.polloptions.all%}
+                                {%if polloptions.option1%}
+                                <li class="list-group-item">
+                                    <div class="checkbox">
+                                    {%if polloptions.option1photo%}
+                                    <img src={{polloptions.option1photo.url}} width="50" height="50">
+                                    {%else%}
+                                    {%endif%}
+                                        <label>
+                                        <input type="radio" value="option1" name = "poll_option">
+                                            <span class="choices-font">{{polloptions.option1}}</span>
+                                        </input>
+                                        </label>
+                                    </div>
+                                </li>
+                                {%else%}
+                                {%endif%}
+
+                                {%if polloptions.option2%}
+                                <li class="list-group-item">
+                                    <div class="checkbox">
+                                    {%if polloptions.option2photo%}
+                                    <img src={{polloptions.option2photo.url}} width="50" height="50">
+                                    {%else%}
+                                    {%endif%}
+                                        <label>
+                                        <input type="radio" value="option2" name = "poll_option">
+                                            <span class="choices-font">{{polloptions.option2}}</span>
+                                        </input>
+                                        </label>
+                                    </div>
+                                </li>
+                                {%else%}
+                                {%endif%}
+
+                                {%if polloptions.option3%}
+                                <li class="list-group-item">
+                                    <div class="checkbox">
+                                    {%if polloptions.option3photo%}
+                                    <img src={{polloptions.option3photo.url}} width="50" height="50">
+                                    {%else%}
+                                    {%endif%}
+                                        <label>
+                                        <input type="radio" value="option3" name = "poll_option">
+                                            <span class="choices-font">{{polloptions.option3}}</span>
+                                        </input>
+                                        </label>
+                                    </div>
+                                </li>
+                                {%else%}
+                                {%endif%}
+                            {%endfor%}
+                        </ul>
+                    </div>
+                    <div class="panel-footer text-center">
+                        <div class="d-flex justify-content-around">
+                            <button type="submit" class="btn btn-success btn-block btn-xs" style="margin-top:10px;">
+                                Vote</button>
+                            <a href="{%url 'result' polls.pk%}" class="btn btn-primary btn-block btn-xs" style="margin-top:10px;">View Result</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
