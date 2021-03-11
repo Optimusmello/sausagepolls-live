@@ -8,18 +8,6 @@
     <form method="POST" enctype="multipart/form-data">
         <div class="form-group">
         {%csrf_token%}
-            {% comment %} <label>Question</label><br>
-            <input type="text" name="question" value="{{poll.Question}}"><br>
-            {%for options in poll.polloptions.all%}
-            <label>Option1</label><br>
-            <input type="text" name="Option1" value="{{options.option1}}"><br>
-
-            <label>Option2</label><br>
-            <input type="text" name="Option2" value="{{options.option2}}"><br>
-
-            <label>Option3</label><br>
-            <input type="text" name="Option3" value="{{options.option3}}"><br>
-            {%endfor%} {% endcomment %}
             {{poll_form.as_p}}
             {{polloptions_form.option1}}
             {{polloptions_form.option2}}

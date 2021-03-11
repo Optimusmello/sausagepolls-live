@@ -6,14 +6,7 @@
 {%block content%}
 
     <form method="POST" enctype="multipart/form-data">
-        {%csrf_token%}
-        <!-- <label>Question</label><br>
-        <input type="text" name="question"><br>
-        <label>Options</label><br>
-        <input type="text" name="option1" style="margin-right:10px;"><input type="file" name="option1photo"><br>
-        <input type="text" name="option2" style="margin-right:10px;"><input type="file" name="option2photo"><br>
-        <input type="text" name="option3" style="margin-right:10px;"><input type="file" name="option3photo"><br> -->
-        
+        {%csrf_token%}        
         {{poll_form.as_p}}
         {{polloptions_form.as_p}}
         <button class="btn btn-primary" type="submit">Add Poll</button>
