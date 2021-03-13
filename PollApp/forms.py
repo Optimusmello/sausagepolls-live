@@ -13,4 +13,4 @@ class AddpollForm(forms.ModelForm):
     class Meta:
 
         model = PollOptions
-        fields = ['option1','option2','option3','option1photo','option2photo','option3photo']
+        fields = ['option1','option2','option3']
