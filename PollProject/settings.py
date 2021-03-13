@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '0-o!dd++6-5#dskmxzk!6b4z@*9%@eu&tno)io_4$hbd%mb!kd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -81,10 +81,10 @@ WSGI_APPLICATION = 'PollProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'PollDb',
-        'USER' : 'postgres',
-        'PASSWORD' : '!@amD6450@',
-        'HOST' : 'localhost',
+        'NAME': 'fmposhyk',
+        'USER' : 'fmposhyk',
+        'PASSWORD' : 'rYETpyn_qIQJcjHDyPt6Kvt_nnQ6-QkH',
+        'HOST' : 'tai.db.elephantsql.com',
         'PORT' : '5432',
     }
 }
